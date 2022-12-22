@@ -1,0 +1,12 @@
+.details_user {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+}
+
+.followers_details {
+  margin-right: 3rem;
+}
+.username_details {
+  margin-top: 2rem;
+}

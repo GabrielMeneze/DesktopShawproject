@@ -1,0 +1,35 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.search {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.search input {
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #ccc;
+}
+.search input:hover {
+  border-color: #1ca819;
+}
+.search input:focus-visible {
+  outline: none;
+}
+.search button {
+  width: 30%;
+  border: none;
+  background-color: #1ca819;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+
