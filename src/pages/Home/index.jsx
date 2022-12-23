@@ -1,30 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Card } from '../../components/CardHome/index';
+import axios from 'axios';
 import styles from './Home.module.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './Home.module.css';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-
 
 export function Home() {
   const [user, setUser] = useState('');
   const [listUser, setListUser] = useState();
   const [userdata, setUserdata] = useState()
 
+  // GET (calling the user list)
   useEffect(() => {
     axios.get('https://api.github.com/users?per_page=8')
       .then(res => {
-        console.log(res)
         setUserdata(res.data)
       })
   }, [])
 
+  // GET (search for a specific user)
   const handleSearch = async () => {
     await axios
       .get(`https://api.github.com/users/${user}`)
       .then((response) => {
-        console.log(response);
         setListUser(response.data);
       })
       .catch((e) => console.log(e));

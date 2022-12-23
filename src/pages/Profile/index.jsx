@@ -5,23 +5,21 @@ import { Card } from '../../components/CardProfile/index';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export function Profile() {
-
   const { user } = useParams();
   const [listUser, setListUser] = useState({});
   const [repos, setRepos] = useState([]);
 
+  // GET (fetching user data and repositories data)
   useEffect(() => {
     const data = async () => {
       await axios
         .get(`https://api.github.com/users/${user}`)
         .then(async (response) => {
-          console.log(response);
           setListUser(response.data);
 
           await axios
             .get(`https://api.github.com/users/${user}/repos`)
             .then((res) => {
-              console.log(res.data);
               setRepos(res.data);
             })
             .catch((e) => console.log(e));
@@ -31,7 +29,6 @@ export function Profile() {
     data();
   }, []);
 
-  console.log(repos)
 
   return (
     <>
